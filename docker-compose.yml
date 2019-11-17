@@ -3,8 +3,8 @@ version: '3.4'
 services:
   samba:
     image: dperson/samba
-    environment:
-      TZ: 'EST5EDT'
+    env_file: .env
+
     networks:
       - default
     ports:
@@ -19,8 +19,10 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./data:/mnt:z
-    command: '-s "test_share;/mnt" -u "test;test"'
+      - /mnt/raid/samba:/samba:z
+      - /mnt/raid/plex:/samba/plex:z
+    
+    # command: '-s "test_share;/mnt" -u "test;test"'
 
 networks:
   default:
