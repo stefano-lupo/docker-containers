@@ -22,8 +22,7 @@ services:
       - /mnt/raid/samba:/samba:z
       - /mnt/raid/plex:/samba/plex:z
     
-    # command: '-s "test_share;/mnt" -u "test;test"'
+    command: '-p -n'
 
 networks:
   default:
-
